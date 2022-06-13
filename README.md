@@ -4,7 +4,7 @@
 The objective of College and Student Management System is to connect daily operations in the college environment ranging from Attendance management to communicational means among students and teachers.  
 CSMS facilitates keeping all the information of students such as their id, name, e-mail, date of birth, mark-sheet, subjects, leave requests, leave records, attendance  etc.
 
-    git clone https://github.com/agarwal-megha21/Collegemanagement.git
+    git clone https://github.com/dhruvgp180901/college-student-management-system
     cd Collegemanagement
     
  Create virtual environment
