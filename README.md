@@ -2,10 +2,18 @@
 
 
 The objective of College and Student Management System is to connect daily operations in the college environment ranging from Attendance management to communicational means among students and teachers.  
-CSMS facilitates keeping all the information of students such as their id, name, e-mail, date of birth, mark-sheet, subjects, leave requests, leave records, attendance  etc.
+It facilitates keeping all the information of students such as their id, name, e-mail, date of birth, mark-sheet, subjects, attendance  etc.
 
-    git clone https://github.com/dhruvgp180901/college-student-management-system
+It also keeps the record of professors such as their name, id, e-mail, subjects, attendance sheet  etc. They can also record the attendance of the students attending their subjects.
+
+
+    git clone https://github.com/dhruvgp180901/college-student-management-system.git
     cd Collegemanagement
+    
+# Getting Started
+
+### Prerequistics
+    python==3.8 or up and django==3.1 or up
     
  Create virtual environment
 
@@ -15,43 +23,40 @@ CSMS facilitates keeping all the information of students such as their id, name,
     source venv/bin/activate (for linux)
     ./venv/scripts/activate (for windows)
    
-   Install Packages
-   
+### Installation
+    git clone https://github.com/agarwal-megha21/College-and-Student-Management-System.git
 
-    pip install -r requirements.txt
+### Setup the database<br>
+    In the following code replace \<USER> with any Username of your choice.<br>
+    In the following code replace \<PASS> with any Password of your choice.
 
-Setup the database<br>
-In the following code replace \<USER> with any Username of your choice.<br>
-In the following code replace \<PASS> with any Password of your choice.
+      mysql -u root -p
+      create database CMS_database;
+      create user '<USER>'@'localhost' identified by '<PASS>';
+      grant usage on *.* to '<USER>'@'localhost';
+      grant all priveleges on CMS_database.* to '<USER>'@'localhost';
 
-    mysql -u root -p
-    create database CMS_database;
-    create user '<USER>'@'localhost' identified by '<PASS>';
-    grant usage on *.* to '<USER>'@'localhost';
-    grant all priveleges on CMS_database.* to '<USER>'@'localhost';
+### Setup settings.py<br>
+    In the following code replace \<USER> with the Username you created above.<br>
+    In the following code replace \<PASS> with the Password you created above.<br>
+    Replace the following code in settings.py : 
 
-Setup settings.py<br>
-In the following code replace \<USER> with the Username you created above.<br>
-In the following code replace \<PASS> with the Password you created above.<br>
-Replace the following code in settings.py : 
-
-    DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME' : 'CMS_database',
-        'USER' : '<USER>',
-        'PASSWORD' : '<PASS>',
-        'HOST' : 'localhost',
-        'OPTIONS': {
-                'init_command': 'SET default_storage_engine=INNODB',
-                }
-        }
-    }
+      DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.mysql',
+          'NAME' : 'CMS_database',
+          'USER' : '<USER>',
+          'PASSWORD' : '<PASS>',
+          'HOST' : 'localhost',
+          'OPTIONS': {
+                  'init_command': 'SET default_storage_engine=INNODB',
+                  }
+          }
+      }
 
    
-   Migrate the database<br>
-  (If python3 does not work, use python instead of python3)
+### Migrate the database<br>
 
-    python3 manage.py makemigrations
-    python3 manage.py migrate
-    python3 manage.py runserver
+      python3 manage.py makemigrations
+      python3 manage.py migrate
+      python3 manage.py runserver
