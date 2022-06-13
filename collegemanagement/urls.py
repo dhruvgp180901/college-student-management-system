@@ -44,15 +44,6 @@ urlpatterns = [
 
 ]
 
-urlpatterns +=[
-   url(r'^accounts/password/reset/$', auth_views.PasswordResetView.as_view(template_name='update_form.html')),
-   url(r'^accounts/login/$', LoginView.as_view(template_name='login.html')),
-   url(r'^user/password/reset/$',auth_views.PasswordResetView.as_view(),{'post_reset_redirect' : '/user/password/reset/done/'},name="password_reset"),
-   url(r'^user/password/reset/done/$',auth_views.PasswordResetDoneView.as_view(),name="password_reset_done"),
-   url(r'^user/password/reset/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',auth_views.PasswordResetConfirmView.as_view(),{'post_reset_redirect' : '/user/password/done/'},name="password_reset_confirm"),
-   url(r'^user/password/done/$',auth_views.PasswordResetCompleteView.as_view(),name="password_reset_done"),
-]
-
 urlpatterns+=staticfiles_urlpatterns()
 urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
 urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
